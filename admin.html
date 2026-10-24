@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Panel Admin · Heladería Arcoíris</title>
+  <link rel="icon" href="img/logo.ico" sizes="32x32">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- =============================================
+       PANTALLA DE ACCESO
+       Nota: esto es solo una barrera básica para uso interno,
+       NO es un sistema de autenticación seguro (la contraseña
+       vive en js/admin.js, visible en el código fuente).
+  ============================================= -->
+  <div class="admin-login" id="loginScreen">
+    <form class="login-card" id="loginForm">
+      <div class="login-icon">🔐</div>
+      <h1>Panel de Administración</h1>
+      <p class="login-sub">Heladería y Frutería Arcoíris</p>
+      <input type="password" id="loginPassword" placeholder="Contraseña" autocomplete="current-password" required />
+      <button type="submit" class="btn btn-primary">Ingresar</button>
+      <p class="login-error" id="loginError"></p>
+      <a href="index.html" class="login-back">← Volver al sitio</a>
+    </form>
+  </div>
+
+  <!-- =============================================
+       PANEL PRINCIPAL
+  ============================================= -->
+  <div class="admin-panel" id="adminPanel">
+    <header class="admin-header">
+      <div class="admin-header-title">
+        <span class="logo-icon">🍦</span>
+        <div>
+          <strong>Panel de Administración</strong>
+          <small>Heladería y Frutería Arcoíris</small>
+        </div>
+      </div>
+      <div class="admin-header-actions">
+        <a href="index.html" class="btn btn-outline" target="_blank" rel="noopener">👁️ Ver sitio</a>
+        <button class="btn btn-outline" id="logoutBtn">🚪 Salir</button>
+      </div>
+    </header>
+
+    <!-- Pestañas de navegación del panel -->
+    <nav class="admin-tabs-nav" aria-label="Secciones del panel">
+      <div class="admin-tabs-container">
+        <button type="button" class="admin-tab-btn active" id="tabBtnProducts" data-tab="tabProducts">
+          🍨 Catálogo de Productos
+        </button>
+        <button type="button" class="admin-tab-btn" id="tabBtnSurveys" data-tab="tabSurveys">
+          📋 Encuestas y Base de Datos <span class="tab-badge" id="surveysCountBadge">0</span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="admin-main">
+
+      <!-- =============================================
+           PESTAÑA 1: CATÁLOGO DE PRODUCTOS
+      ============================================= -->
+      <section class="admin-tab-content active" id="tabProducts">
+        <div class="admin-notice">
+          ⚠️ Los cambios se guardan <strong>solo en este navegador</strong> (localStorage). Si abres el sitio desde
+          otro computador o navegador, no se verán. Usa <strong>«Exportar JSON»</strong> para guardar una copia que
+          puedas usar para actualizar <code>js/products.js</code> de forma permanente.
+        </div>
+
+        <div class="admin-toolbar">
+          <button class="btn btn-primary" id="addProductBtn">➕ Agregar producto</button>
+          <button class="btn btn-primary" id="saveAllBtn">💾 Guardar cambios</button>
+          <button class="btn btn-outline" id="exportJsonBtn">⬇️ Exportar JSON</button>
+          <button class="btn btn-outline btn-danger" id="resetDefaultsBtn">↺ Restaurar original</button>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Precio (COP)</th>
+                <th>Descripción</th>
+                <th>Popular</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="productsTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =============================================
+           PESTAÑA 2: BASE DE DATOS DE ENCUESTAS
+      ============================================= -->
+      <section class="admin-tab-content" id="tabSurveys" style="display: none;">
+        
+        <!-- Tarjetas de Estadísticas KPI -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <span class="kpi-icon">📝</span>
+            <div class="kpi-info">
+              <span class="kpi-value" id="kpiTotalSurveys">0</span>
+              <span class="kpi-label">Encuestas Recibidas</span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-icon">🍨</span>
+            <div class="kpi-info">
+              <span class="kpi-value" id="kpiAvgProducts">0.0</span>
+              <span class="kpi-label">Satisfacción Productos (1-5)</span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-icon">🌐</span>
+            <div class="kpi-info">
+              <span class="kpi-value" id="kpiAvgWeb">0.0</span>
+              <span class="kpi-label">Experiencia Web (1-5)</span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-icon">⭐</span>
+            <div class="kpi-info">
+              <span class="kpi-value" id="kpiNPS">0%</span>
+              <span class="kpi-label">% Promotores (NPS)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barra de herramientas de encuestas -->
+        <div class="admin-toolbar" style="margin-top: 1.5rem;">
+          <a href="https://iedhernanvenegascarrillo.edu.co/bases2026/proyecto3/pqr3.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color:#2563eb; color:#2563eb; font-weight:600;">
+            🏫 Abrir pqr3.html Institucional ↗
+          </a>
+          <button class="btn btn-primary" id="btnExportCSV">📥 Exportar a Excel (CSV)</button>
+          <button class="btn btn-outline" id="btnExportJSON">⬇️ Exportar JSON</button>
+          <button class="btn btn-outline" id="btnRefreshSurveys">🔄 Actualizar</button>
+          <button class="btn btn-outline" id="btnSeedDemo">➕ Cargar Datos Demo</button>
+          <button class="btn btn-outline btn-danger" id="btnClearSurveys">🗑️ Vaciar Base de Datos</button>
+        </div>
+
+        <!-- Filtro y búsqueda -->
+        <div class="surveys-filter-bar">
+          <input type="text" id="surveySearchInput" placeholder="🔍 Buscar por nombre, correo, ciudad o producto favorito..." class="search-input" />
+        </div>
+
+        <!-- Tabla de encuestas -->
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="surveysTable">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Ciudad</th>
+                <th>Producto Favorito</th>
+                <th>Calidad Prod.</th>
+                <th>Calidad Web</th>
+                <th>NPS</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="surveysTableBody">
+              <!-- Renderizado dinámicamente -->
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODAL DE DETALLE DE ENCUESTA -->
+  <div class="admin-modal-overlay" id="surveyDetailModal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modalDetailTitle">
+    <div class="admin-modal-box">
+      <div class="admin-modal-header">
+        <h3 id="modalDetailTitle">📋 Detalle de Encuesta de Satisfacción</h3>
+        <button type="button" class="modal-close-icon" id="closeDetailModalBtn">&times;</button>
+      </div>
+      <div class="admin-modal-body" id="surveyDetailContent">
+        <!-- Contenido dinámico -->
+      </div>
+      <div class="admin-modal-footer">
+        <button type="button" class="btn btn-primary" id="closeDetailModalBtn2">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-toast" id="toast"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/survey-db.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
