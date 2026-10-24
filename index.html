@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Heladería y Frutería Arcoíris en Tocaima, Colombia. Versión Moderna con Efectos Visuales, Personalizador de Helados y Encuesta con Base de Datos." />
+  <meta name="author" content="Heladería Arcoíris - peleona2002@gmail.com" />
+
+  <title>Heladería y Frutería Arcoíris | Versión Moderna Pro 🌈</title>
+  <link rel="icon" href="img/logo.ico" sizes="32x32" />
+
+  <!-- Google Fonts: Outfit, Plus Jakarta Sans, Pacifico -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Pacifico&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Hoja de Estilos Moderna -->
+  <link rel="stylesheet" href="css/styles_moderno.css" />
+</head>
+<body>
+
+  <!-- =============================================
+       1. BARRA COMPARADORA ANTES / DESPUÉS
+  ============================================= -->
+  <aside class="diff-bar" aria-label="Comparación de versiones">
+    <div class="diff-badge-wrap">
+      <span class="diff-badge">✨ Versión Moderna Pro (Después)</span>
+      <span>Interfaz renovada con efectos 3D, personalizador y encuesta interactiva</span>
+    </div>
+    <div class="diff-links">
+      <a href="index.html" class="diff-btn diff-btn-before">
+        <i class="fas fa-history"></i> Ver Versión Original (Antes)
+      </a>
+      <button type="button" class="diff-btn diff-btn-theme" id="themeToggleBtn" title="Cambiar tema visual">
+        🌙 Modo Neón
+      </button>
+    </div>
+  </aside>
+
+  <!-- =============================================
+       2. PARTÍCULAS Y ELEMENTOS FLOTANTES DE FONDO
+  ============================================= -->
+  <div class="floating-elements-bg" aria-hidden="true">
+    <span class="float-item">🍦</span>
+    <span class="float-item">🍓</span>
+    <span class="float-item">🥭</span>
+    <span class="float-item">🍧</span>
+    <span class="float-item">🍨</span>
+    <span class="float-item">🍒</span>
+  </div>
+
+  <!-- =============================================
+       3. NAVBAR MODERNA CON BLUR Y EFECTOS
+  ============================================= -->
+  <header class="navbar-modern" id="navModern">
+    <div class="container nav-container">
+      <a href="#inicio" class="brand-modern">
+        <span class="brand-logo-icon">🍦</span>
+        <div class="brand-title-group">
+          <span class="brand-name">Arcoíris</span>
+          <span class="brand-tag">Heladería &amp; Frutería</span>
+        </div>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="nav-links-modern">
+          <li><a href="#inicio" class="nav-link-modern active">Inicio</a></li>
+          <li><a href="#catalogo" class="nav-link-modern">Menú</a></li>
+          <li><a href="#personalizador" class="nav-link-modern">Crear Helado ✨</a></li>
+          <li><a href="#nosotros" class="nav-link-modern">Nosotros</a></li>
+          <li><a href="#contacto" class="nav-link-modern">Contacto &amp; Horarios</a></li>
+          <li><a href="#encuesta" class="nav-link-modern nav-link-pqr">📋 Encuesta BD</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="cart-btn-modern" id="cartBtnModern" aria-label="Abrir carrito de compras">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count-badge" id="cartBadgeCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =============================================
+       4. SECCIÓN HERO MODERNO CON EFECTO 3D
+  ============================================= -->
+  <section class="hero-modern" id="inicio">
+    <div class="container hero-grid">
+
+      <!-- Textos y Llamados a la Acción -->
+      <div class="hero-content-modern">
+        <div class="hero-meta-pill">
+          <i class="fas fa-map-marker-alt"></i> Tocaima, Cundinamarca · 100% Artesanal
+        </div>
+
+        <h1 class="hero-title-modern">
+          <span class="rainbow-gradient-text">Heladería y Frutería</span><br />
+          <span class="brand-script">Arcoíris 🌈</span>
+        </h1>
+
+        <!-- Efecto de Escritura Dinámica -->
+        <div class="hero-typing-wrap">
+          <span id="typingSlogan">“Sabor, color y frescura en cada bocado”</span>
+          <span class="typing-cursor"></span>
+        </div>
+
+        <p class="hero-desc-modern">
+          Disfruta de helados artesanales cremosos, copas gigantes, ensaladas de frutas frescas cosechadas del campo y malteadas deliciosas en el corazón de Tocaima.
+        </p>
+
+        <div class="hero-actions-group">
+          <a href="#catalogo" class="btn-modern btn-primary-modern">
+            <i class="fas fa-ice-cream"></i> Explorar Menú
+          </a>
+          <a href="#personalizador" class="btn-modern btn-secondary-modern">
+            <i class="fas fa-wand-magic-sparkles"></i> Crear mi Helado
+          </a>
+          <a href="#encuesta" class="btn-modern btn-pqr-hero">
+            <i class="fas fa-database"></i> Encuesta BD
+          </a>
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="stat-item">
+            <span class="stat-number">+20</span>
+            <span class="stat-label">Sabores Artesanales</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Fruta Fresca Natural</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">⭐ 4.9</span>
+            <span class="stat-label">Satisfacción Clientes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Showcase 3D con Slideshow -->
+      <div class="hero-showcase-3d">
+        <div class="tilt-card-wrapper tilt-3d">
+          <div class="hero-main-card">
+            <div class="hero-carousel-container">
+              <img src="img/bebida.jpg" alt="Deliciosa copa y bebida" class="hero-slide-img active" />
+              <img src="img/inicio2.jpeg" alt="Vitrina de helados artesanales" class="hero-slide-img" />
+              <img src="img/ensaladas.jpg" alt="Frutas frescas seleccionadas" class="hero-slide-img" />
+              <img src="img/inicio1.jpeg" alt="Preparación artesanal" class="hero-slide-img" />
+            </div>
+
+            <div class="hero-floating-tag">
+              <div>
+                <strong>¡Recién Preparado!</strong>
+                <p style="font-size: 0.78rem; opacity: 0.85;">Pide a domicilio o visítanos</p>
+              </div>
+              <span style="font-size: 1.5rem;">🍧</span>
+            </div>
+          </div>
+
+          <div class="floating-badge-3d badge-top-right">
+            <span>🍓</span>
+            <div>
+              <div style="font-size:0.75rem; text-transform:uppercase; color:var(--c-pink);">Frescura</div>
+              <div>Fresas con Crema</div>
+            </div>
+          </div>
+
+          <div class="floating-badge-3d badge-bottom-left">
+            <span>⭐</span>
+            <div>
+              <div style="font-size:0.75rem; text-transform:uppercase; color:#FFAA00;">Recomendado</div>
+              <div>Copa Suprema</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       5. CATÁLOGO CON BÚSQUEDA Y FILTRADO EN VIVO
+  ============================================= -->
+  <section class="section-modern" id="catalogo">
+    <div class="container">
+      <div class="section-header-modern">
+        <span class="section-pill">🍨 Nuestro Delicioso Menú</span>
+        <h2 class="section-title-modern">Explora Nuestras <span class="rainbow-gradient-text">Especialidades</span></h2>
+        <p class="section-desc-modern">Preparamos cada receta al instante con frutas selectas, crema de leche suave y amor artesanal.</p>
+      </div>
+
+      <!-- Toolbar de Búsqueda y Pestañas -->
+      <div class="catalog-toolbar">
+        <div class="search-bar-wrap">
+          <i class="fas fa-search search-icon-inside"></i>
+          <input type="text" id="searchProductInput" class="search-input-modern" placeholder="Buscar por nombre (ej: fresas, brownie, ensalada, copa)..." />
+          <button type="button" id="searchClearBtn" class="search-clear-btn" aria-label="Borrar búsqueda"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="category-tabs" role="tablist">
+          <button type="button" class="cat-tab-btn active" data-category="all">✨ Todos</button>
+          <button type="button" class="cat-tab-btn" data-category="helados">🍦 Helados &amp; Copas</button>
+          <button type="button" class="cat-tab-btn" data-category="ensaladas">🥗 Ensaladas de Frutas</button>
+          <button type="button" class="cat-tab-btn" data-category="jugos">🍹 Jugos &amp; Bebidas</button>
+          <button type="button" class="cat-tab-btn" data-category="comida rapida">🍔 Comida Rápida</button>
+        </div>
+      </div>
+
+      <!-- Grid dinámico renderizado con JS -->
+      <div class="products-grid-modern" id="productsGridModern">
+        <!-- Renderizado dinámico desde moderno.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       6. SECCIÓN PERSONALIZADOR: "CREA TU HELADO SOÑADO"
+  ============================================= -->
+  <section class="customizer-section" id="personalizador">
+    <div class="container">
+      <div class="section-header-modern">
+        <span class="section-pill">✨ Experiencia Interactiva</span>
+        <h2 class="section-title-modern">Crea tu <span class="rainbow-gradient-text">Helado Soñado</span></h2>
+        <p class="section-desc-modern">Elige tu base favorita, combina hasta 3 sabores artesanales y añade tus toppings preferidos.</p>
+      </div>
+
+      <div class="customizer-grid">
+
+        <!-- Pasos de Selección -->
+        <div class="customizer-steps">
+
+          <!-- Paso 1: Base -->
+          <div class="cust-step-card tilt-3d">
+            <h3 class="cust-step-title"><span style="color:var(--c-pink);">1.</span> Elige la Presentación</h3>
+            <div class="cust-pill-group">
+              <label class="cust-pill base-pill selected" data-name="Copa de Cristal Suprema" data-price="18000" data-icon="🍨">
+                <span>🍨 Copa de Cristal ($18.000)</span>
+              </label>
+              <label class="cust-pill base-pill" data-name="Cono Galleta Crocante" data-price="12000" data-icon="🍦">
+                <span>🍦 Cono Crocante ($12.000)</span>
+              </label>
+              <label class="cust-pill base-pill" data-name="Canastilla Waffle Horneada" data-price="16000" data-icon="🧇">
+                <span>🧇 Canastilla Waffle ($16.000)</span>
+              </label>
+              <label class="cust-pill base-pill" data-name="Vaso Arcoíris Ecológico" data-price="10000" data-icon="🍧">
+                <span>🍧 Vaso Arcoíris ($10.000)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Paso 2: Sabores -->
+          <div class="cust-step-card tilt-3d">
+            <h3 class="cust-step-title"><span style="color:var(--c-pink);">2.</span> Escoger Sabor de Helado (hasta 3)</h3>
+            <div class="cust-pill-group">
+              <label class="cust-pill flavor-pill selected" data-flavor="Brownie">🍫 Brownie</label>
+              <label class="cust-pill flavor-pill selected" data-flavor="Vainilla">🍦 Vainilla</label>
+              <label class="cust-pill flavor-pill" data-flavor="Vainilla Chips">🍨 Vainilla Chips</label>
+              <label class="cust-pill flavor-pill" data-flavor="Chocolate">🍫 Chocolate</label>
+              <label class="cust-pill flavor-pill" data-flavor="Mandarina">🍊 Mandarina</label>
+              <label class="cust-pill flavor-pill" data-flavor="Frutos Rojos">🍓 Frutos Rojos</label>
+            </div>
+          </div>
+
+          <!-- Paso 3: Toppings -->
+          <div class="cust-step-card tilt-3d">
+            <h3 class="cust-step-title"><span style="color:var(--c-pink);">3.</span> Añade Toppings y Dulzura</h3>
+            <div class="cust-pill-group">
+              <label class="cust-pill topping-pill selected" data-topping="Fresas Silvestres">🍓 Fresas Frescas</label>
+              <label class="cust-pill topping-pill selected" data-topping="Crema Chantilly">🧁 Crema Chantilly</label>
+              <label class="cust-pill topping-pill" data-topping="Salsa de Mora Artesanal">🍯 Salsa de Mora</label>
+              <label class="cust-pill topping-pill" data-topping="Brownie en Cubos">🍫 Trozos de Brownie</label>
+              <label class="cust-pill topping-pill" data-topping="Barquillo Crocante">🥢 Barquillos</label>
+              <label class="cust-pill topping-pill" data-topping="Queso Campesino Rayado">🧀 Queso Rayado</label>
+              <label class="cust-pill topping-pill" data-topping="Chispas de Colores">🌈 Chispas Arcoíris</label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Vista Previa en Vivo -->
+        <aside class="cust-preview-card" aria-label="Resumen de tu helado">
+          <div class="cust-preview-cone" id="previewVessel">🍨</div>
+          <h4 class="cust-preview-title" id="previewTitle">Copa de Cristal Suprema</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Diseñado a tu gusto en Heladería Arcoíris</p>
+
+          <div class="cust-preview-list">
+            <div class="cust-preview-row">
+              <strong>Sabores:</strong>
+              <span id="previewFlavorsText">Brownie + Vainilla</span>
+            </div>
+            <div class="cust-preview-row">
+              <strong>Toppings:</strong>
+              <span id="previewToppingsText">Fresas Frescas, Crema Chantilly</span>
+            </div>
+            <div class="cust-preview-row">
+              <strong>Estado:</strong>
+              <span style="color: var(--c-green); font-weight: 700;">¡Listo para preparar!</span>
+            </div>
+          </div>
+
+          <div class="cust-price-tag" id="previewPrice">$18.000 COP</div>
+
+          <button type="button" class="btn-modern btn-primary-modern" style="width: 100%; justify-content: center;" id="btnAddCustomIceCream">
+            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+          </button>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       7. ENCUESTA DE SATISFACCIÓN EN BASE DE DATOS
+  ============================================= -->
+  <section class="survey-section-modern" id="encuesta">
+    <div class="container">
+      <div class="section-header-modern">
+        <span class="section-pill">📋 Tu Opinión Cuenta</span>
+        <h2 class="section-title-modern">Encuesta de Satisfacción en <span class="rainbow-gradient-text">Base de Datos</span></h2>
+        <p class="section-desc-modern">Tus datos se guardan de forma instantánea y segura en nuestra <strong>Base de Datos</strong>.</p>
+      </div>
+
+      <div class="survey-wrapper-modern">
+
+        <!-- Banner Institucional Encuesta BD -->
+        <div class="inst-card-modern">
+          <div class="inst-card-text">
+            <span class="inst-tag">🏫 IED Hernán Venegas Carrillo / SENA 2026</span>
+            <h3 class="inst-card-title">Encuesta con Base de Datos</h3>
+            <p class="inst-card-desc">
+              Tus respuestas se almacenan directamente en la <strong>Base de Datos</strong> de Heladería Arcoíris (IndexedDB / MySQL local) para el proyecto formativo.
+            </p>
+          </div>
+          <div class="btn-inst-modern" style="cursor: default;">
+            <i class="fas fa-database"></i> Base de Datos Activa
+          </div>
+        </div>
+
+        <!-- Formulario Moderno de Encuesta -->
+        <form class="survey-card-modern" id="modernSurveyForm" novalidate>
+
+          <!-- PASO 1: Datos Personales -->
+          <div class="survey-section-heading">
+            <div class="survey-step-num">1</div>
+            <div class="survey-heading-text">
+              <h3>Datos del Visitante</h3>
+              <p>Cuéntanos un poco sobre ti</p>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group-modern">
+              <label for="surveyName" class="label-modern"><i class="fas fa-user"></i> Nombre Completo <span class="req">*</span></label>
+              <div class="input-modern-wrap">
+                <input type="text" id="surveyName" class="input-modern" placeholder="Ej: Astrit Bautista" required />
+              </div>
+            </div>
+
+            <div class="form-group-modern">
+              <label for="surveyEmail" class="label-modern"><i class="fas fa-envelope"></i> Correo Electrónico <span class="req">*</span></label>
+              <div class="input-modern-wrap">
+                <input type="email" id="surveyEmail" class="input-modern" placeholder="tu-correo@ejemplo.com" required />
+              </div>
+            </div>
+
+            <div class="form-group-modern">
+              <label for="surveyPhone" class="label-modern"><i class="fab fa-whatsapp"></i> Teléfono / WhatsApp</label>
+              <div class="input-modern-wrap">
+                <input type="tel" id="surveyPhone" class="input-modern" placeholder="Ej: 3134292831" />
+              </div>
+            </div>
+
+            <div class="form-group-modern">
+              <label for="surveyCity" class="label-modern"><i class="fas fa-map-marker-alt"></i> Municipio / Ciudad</label>
+              <select id="surveyCity" class="select-modern">
+                <option value="Tocaima" selected>📍 Tocaima (Local)</option>
+                <option value="Girardot">Girardot</option>
+                <option value="Agua de Dios">Agua de Dios</option>
+                <option value="Viotá">Viotá</option>
+                <option value="Bogotá">Bogotá D.C.</option>
+                <option value="Otra">Otra ciudad</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- PASO 2: Experiencia y Sabores en la Heladería -->
+          <div class="survey-section-heading" style="margin-top: 2rem;">
+            <div class="survey-step-num">2</div>
+            <div class="survey-heading-text">
+              <h3>Experiencia en la Heladería &amp; Menú</h3>
+              <p>Evalúa el sabor, la frescura y la textura artesanal</p>
+            </div>
+          </div>
+
+          <div class="form-group-modern">
+            <label class="label-modern">¿Cuáles de nuestros sabores artesanales prefieres? (Puedes marcar varios)</label>
+            <div class="flavor-chips-grid">
+              <div class="flavor-chip survey-flavor-chip active" data-flavor-name="Brownie">
+                <input type="checkbox" checked />
+                <span>🍫 Brownie</span>
+              </div>
+              <div class="flavor-chip survey-flavor-chip active" data-flavor-name="Vainilla">
+                <input type="checkbox" checked />
+                <span>🍦 Vainilla</span>
+              </div>
+              <div class="flavor-chip survey-flavor-chip" data-flavor-name="Vainilla Chips">
+                <input type="checkbox" />
+                <span>🍨 Vainilla Chips</span>
+              </div>
+              <div class="flavor-chip survey-flavor-chip" data-flavor-name="Chocolate">
+                <input type="checkbox" />
+                <span>🍫 Chocolate</span>
+              </div>
+              <div class="flavor-chip survey-flavor-chip" data-flavor-name="Mandarina">
+                <input type="checkbox" />
+                <span>🍊 Mandarina</span>
+              </div>
+              <div class="flavor-chip survey-flavor-chip" data-flavor-name="Frutos Rojos">
+                <input type="checkbox" />
+                <span>🍓 Frutos Rojos</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-grid-2" style="margin-top: 1.2rem;">
+            <div class="form-group-modern">
+              <label for="surveyFavorite" class="label-modern">¿Cuál es tu producto favorito absoluto?</label>
+              <input type="text" id="surveyFavorite" class="input-modern" placeholder="Ej: Copa Suprema, Fresas Salvajes..." />
+            </div>
+
+            <div class="form-group-modern">
+              <label for="surveyPriceRating" class="label-modern">¿Qué opinas de la relación calidad/precio?</label>
+              <select id="surveyPriceRating" class="select-modern">
+                <option value="Justos y adecuados" selected>👍 Justos y acordes a la excelente calidad</option>
+                <option value="Muy económicos">💰 Muy económicos y accesibles</option>
+                <option value="Podrían ser más accesibles">🏷️ Podrían ser un poco más accesibles</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Calificaciones con Estrellas -->
+          <div class="rating-group-modern">
+            <div>
+              <span class="rating-title-text">Sabor, textura y cremosidad de los helados:</span>
+            </div>
+            <div class="stars-interactive" data-target="calificacionCalidad" role="radiogroup">
+              <button type="button" class="star-modern-btn active" data-value="1">★</button>
+              <button type="button" class="star-modern-btn active" data-value="2">★</button>
+              <button type="button" class="star-modern-btn active" data-value="3">★</button>
+              <button type="button" class="star-modern-btn active" data-value="4">★</button>
+              <button type="button" class="star-modern-btn active" data-value="5">★</button>
+            </div>
+            <input type="hidden" id="calificacionCalidad" value="5" />
+            <div class="rating-caption">5/5 · ¡Sabor celestial y frescura máxima! 🍦</div>
+          </div>
+
+          <div class="rating-group-modern">
+            <div>
+              <span class="rating-title-text">Frescura y presentación de las frutas y copas:</span>
+            </div>
+            <div class="stars-interactive" data-target="calificacionPresentacion" role="radiogroup">
+              <button type="button" class="star-modern-btn active" data-value="1">★</button>
+              <button type="button" class="star-modern-btn active" data-value="2">★</button>
+              <button type="button" class="star-modern-btn active" data-value="3">★</button>
+              <button type="button" class="star-modern-btn active" data-value="4">★</button>
+              <button type="button" class="star-modern-btn active" data-value="5">★</button>
+            </div>
+            <input type="hidden" id="calificacionPresentacion" value="5" />
+            <div class="rating-caption">5/5 · ¡Obra de arte y frutas impecables! 🍓</div>
+          </div>
+
+          <!-- PASO 3: Experiencia Web y Recomendación NPS -->
+          <div class="survey-section-heading" style="margin-top: 2rem;">
+            <div class="survey-step-num">3</div>
+            <div class="survey-heading-text">
+              <h3>Experiencia Digital &amp; Recomendación (NPS)</h3>
+              <p>Evalúa esta página web moderna con efectos</p>
+            </div>
+          </div>
+
+          <div class="rating-group-modern">
+            <div>
+              <span class="rating-title-text">Diseño visual, rapidez y efectos de la página web:</span>
+            </div>
+            <div class="stars-interactive" data-target="calificacionWeb" role="radiogroup">
+              <button type="button" class="star-modern-btn active" data-value="1">★</button>
+              <button type="button" class="star-modern-btn active" data-value="2">★</button>
+              <button type="button" class="star-modern-btn active" data-value="3">★</button>
+              <button type="button" class="star-modern-btn active" data-value="4">★</button>
+              <button type="button" class="star-modern-btn active" data-value="5">★</button>
+            </div>
+            <input type="hidden" id="calificacionWeb" value="5" />
+            <div class="rating-caption">5/5 · ¡Increíble diseño, moderna y con efectos! 🌈</div>
+          </div>
+
+          <!-- Escala NPS -->
+          <div class="form-group-modern nps-container-modern">
+            <label class="label-modern">¿Qué tan probable es que nos recomiendes a amigos y familiares?</label>
+            <div class="nps-buttons-row">
+              <button type="button" class="nps-btn-modern" data-score="1">1</button>
+              <button type="button" class="nps-btn-modern" data-score="2">2</button>
+              <button type="button" class="nps-btn-modern" data-score="3">3</button>
+              <button type="button" class="nps-btn-modern" data-score="4">4</button>
+              <button type="button" class="nps-btn-modern" data-score="5">5</button>
+              <button type="button" class="nps-btn-modern" data-score="6">6</button>
+              <button type="button" class="nps-btn-modern" data-score="7">7</button>
+              <button type="button" class="nps-btn-modern" data-score="8">8</button>
+              <button type="button" class="nps-btn-modern" data-score="9">9</button>
+              <button type="button" class="nps-btn-modern active" data-score="10">10</button>
+            </div>
+            <input type="hidden" id="modernNPS" value="10" />
+            <div class="nps-footer-labels">
+              <span>😞 1 = Poco probable</span>
+              <span style="color:var(--c-purple); font-weight:700;">⭐ 10 = ¡Totalmente recomendado!</span>
+              <span>😍 10 = Seguro que sí</span>
+            </div>
+          </div>
+
+          <div class="form-group-modern">
+            <label for="surveyComments" class="label-modern">Comentarios, felicitaciones o nuevo sabor que te gustaría probar:</label>
+            <textarea id="surveyComments" class="textarea-modern" rows="3" placeholder="Escribe aquí tu opinión, sugerencias para Heladería Arcoíris..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit-survey-modern" id="surveySubmitBtnModern">
+            <i class="fas fa-database"></i> Guardar Encuesta en Base de Datos
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       8. MODAL DE ÉXITO EN BASE DE DATOS
+  ============================================= -->
+  <div class="redirect-modal-overlay" id="redirectModalModern" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="redirect-card-modern">
+      <div class="redirect-icon-ring">🎉</div>
+      <h3 class="redirect-title" id="modalTitle">¡Encuesta Guardada en Base de Datos!</h3>
+      <p class="redirect-desc">
+        Tus datos se registraron correctamente en la base de datos de <strong>Heladería y Frutería Arcoíris</strong>.
+        Código de radicado: <strong id="modalSurveyCode" style="color:var(--c-pink);">ENC-XXXXXX</strong>
+      </p>
+
+      <div class="countdown-box">
+        <span class="countdown-number" id="countdownNumber"><i class="fas fa-check-circle" style="color:var(--c-green); font-size:2.8rem;"></i></span>
+        <span class="countdown-text" style="color:var(--c-green); font-weight:700;">✓ Almacenado con éxito en Base de Datos</span>
+      </div>
+
+      <div class="redirect-buttons">
+        <button type="button" class="btn-now-redirect" id="btnStayHere" style="background: var(--grad-glow); border: none; width:100%;">
+          <i class="fas fa-check"></i> Aceptar y Continuar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       9. SOBRE NOSOTROS Y EQUIPO
+  ============================================= -->
+  <section class="section-modern" id="nosotros">
+    <div class="container about-grid-modern">
+      <div>
+        <span class="section-pill">💛 Nuestra Historia</span>
+        <h2 class="section-title-modern">Tradición, Sabor y Alegría en <span class="rainbow-gradient-text">Tocaima</span></h2>
+        <p class="section-desc-modern">
+          Nacimos con el sueño de ofrecer un espacio familiar y alegre donde cada helado y ensalada de frutas sea preparado con los ingredientes más frescos de la región de Cundinamarca.
+        </p>
+
+        <div class="about-features-list">
+          <div class="about-feat-item tilt-3d">
+            <div class="about-feat-icon"><i class="fas fa-seedling"></i></div>
+            <div>
+              <h4 style="font-weight:700;">Frutas 100% Frescas y Naturales</h4>
+              <p style="font-size:0.88rem; color:var(--text-muted);">Compramos directo a productores de la región para garantizar frescura inigualable.</p>
+            </div>
+          </div>
+          <div class="about-feat-item tilt-3d">
+            <div class="about-feat-icon"><i class="fas fa-heart"></i></div>
+            <div>
+              <h4 style="font-weight:700;">Amor en Cada Porción</h4>
+              <p style="font-size:0.88rem; color:var(--text-muted);">Servimos con porciones generosas, crema suave y las mejores combinaciones.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-grid-modern" id="equipo">
+        <div class="team-card-modern tilt-3d">
+          <div class="team-avatar-wrap">
+            <img src="img/astrit.jpeg" alt="Astrit Bautista" class="team-avatar" />
+          </div>
+          <h4 class="team-name">Astrit Bautista</h4>
+          <span class="team-role" style="color:var(--c-pink); font-weight:800; font-size:0.95rem;">👑 Líder</span>
+        </div>
+
+        <div class="team-card-modern tilt-3d">
+          <div class="team-avatar-wrap">
+            <img src="img/Dani.jpeg" alt="Daniela Duarte" class="team-avatar" />
+          </div>
+          <h4 class="team-name">Daniela Duarte</h4>
+          <span class="team-role" style="color:var(--c-purple); font-weight:800; font-size:0.95rem;">🎤 Presentadora</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       10. SECCIÓN DE CONTACTO, UBICACIÓN Y HORARIOS (ALTA VISIBILIDAD)
+  ============================================= -->
+  <section class="contact-hours-section" id="contacto">
+    <div class="container">
+      <div class="section-header-modern">
+        <span class="section-pill">📍 Ubicación &amp; Horarios de Atención</span>
+        <h2 class="section-title-modern">Visítanos en <span class="rainbow-gradient-text">Tocaima</span></h2>
+        <p class="section-desc-modern">Encuentra aquí nuestro punto de atención física, horarios oficiales y líneas de contacto directo.</p>
+      </div>
+
+      <div class="contact-hours-grid">
+        <!-- Tarjeta de Ubicación -->
+        <div class="contact-card-highlight tilt-3d">
+          <div class="contact-card-icon-wrap" style="background: linear-gradient(135deg, #FF6B35, #FFD23F);">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <span class="live-status-pill"><span class="pulse-dot"></span> Abierto Hoy</span>
+          <h3 class="contact-card-title">Punto de Atención</h3>
+          <p class="contact-card-text">
+            <strong>Heladería y Frutería Arcoíris</strong><br />
+            📍 Centro de Tocaima, Cundinamarca, Colombia<br />
+            <span style="font-size: 0.9rem; color: var(--text-muted);">A pocos pasos del parque principal</span>
+          </p>
+          <a href="https://maps.google.com/?q=Tocaima,Cundinamarca" target="_blank" rel="noopener noreferrer" class="btn-contact-action">
+            <i class="fas fa-location-arrow"></i> Ver en Google Maps ↗
+          </a>
+        </div>
+
+        <!-- Tarjeta de Horarios -->
+        <div class="contact-card-highlight tilt-3d">
+          <div class="contact-card-icon-wrap" style="background: linear-gradient(135deg, #7209B7, #F72585);">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3 class="contact-card-title">Horarios de Atención</h3>
+          <div class="hours-schedule-list">
+            <div class="schedule-row">
+              <span class="day-label">Lunes a Viernes:</span>
+              <strong class="time-label">10:00 AM - 9:00 PM</strong>
+            </div>
+            <div class="schedule-row">
+              <span class="day-label">Sábados y Domingos:</span>
+              <strong class="time-label" style="color: var(--c-pink);">9:00 AM - 10:00 PM</strong>
+            </div>
+            <div class="schedule-row">
+              <span class="day-label">Festivos:</span>
+              <strong class="time-label" style="color: var(--c-green);">10:00 AM - 10:00 PM</strong>
+            </div>
+          </div>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.8rem;">
+            🍦 ¡Servicio continuo todos los días con productos frescos!
+          </p>
+        </div>
+
+        <!-- Tarjeta de Pedidos y WhatsApp -->
+        <div class="contact-card-highlight tilt-3d">
+          <div class="contact-card-icon-wrap" style="background: linear-gradient(135deg, #25D366, #128C7E);">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h3 class="contact-card-title">Línea de Contacto &amp; Pedidos</h3>
+          <p class="contact-card-text">
+            ¿Deseas pedir a domicilio o hacer un pedido anticipado?<br />
+            <strong>WhatsApp Oficial:</strong> <a href="https://wa.me/573134292831" target="_blank" style="color:#25D366; font-weight:800; font-size:1.15rem;">+57 313 429 2831</a><br />
+            <strong>Atención:</strong> Astrit Bautista (Líder) y Daniela Duarte (Presentadora)
+          </p>
+          <a href="https://wa.me/573134292831?text=Hola%20Heladeria%20Arcoiris,%20quisiera%20hacer%20un%20pedido%20fresco%20%F0%9F%8D%A6" target="_blank" rel="noopener noreferrer" class="btn-contact-action" style="background: #25D366;">
+            <i class="fab fa-whatsapp"></i> Escribir a WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       11. CARRITO MODERNO (DRAWER LATERAL)
+  ============================================= -->
+  <div class="cart-overlay-modern" id="cartOverlayModern"></div>
+  <aside class="cart-drawer-modern" id="cartDrawerModern" aria-label="Carrito de compras">
+    <div class="cart-header-modern">
+      <h3 class="cart-title-modern"><i class="fas fa-shopping-bag" style="color:var(--c-pink);"></i> Tu Carrito</h3>
+      <button type="button" class="cart-close-modern" id="cartCloseModern" aria-label="Cerrar carrito"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="cart-body-modern" id="cartBodyModern">
+      <!-- Elementos del carrito cargados dinámicamente -->
+    </div>
+
+    <div class="cart-footer-modern">
+      <div class="cart-total-row">
+        <span>Total a Pagar:</span>
+        <span id="cartTotalAmount" style="color:var(--c-purple);">$0 COP</span>
+      </div>
+      <button type="button" class="btn-checkout-wa" id="cartCheckoutWhatsApp">
+        <i class="fab fa-whatsapp"></i> Finalizar Pedido por WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- =============================================
+       12. PIE DE PÁGINA (FOOTER MODERNO)
+  ============================================= -->
+  <footer class="footer-modern">
+    <div class="container">
+      <div class="footer-grid-modern">
+        <div class="footer-brand">
+          <h4>Arcoíris 🌈</h4>
+          <p class="footer-desc">
+            Sabor, color y frescura en cada bocado. Helados artesanales, copas y ensaladas en Tocaima, Cundinamarca.
+          </p>
+          <p style="font-size:0.85rem; color:#a09cb8;">
+            <i class="fas fa-envelope"></i> Contacto: <strong>peleona2002@gmail.com</strong><br />
+            👑 Creadoras: <strong>Astrit Bautista (Líder)</strong> y <strong>Daniela Duarte (Presentadora)</strong>
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navegación</h5>
+          <ul class="footer-links-list">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#catalogo">Catálogo de Productos</a></li>
+            <li><a href="#personalizador">Personalizador de Helados</a></li>
+            <li><a href="#nosotros">Sobre Nosotros</a></li>
+            <li><a href="#contacto">Contacto &amp; Horarios</a></li>
+            <li><a href="index.html">Versión Anterior (Antes)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Encuesta BD</h5>
+          <ul class="footer-links-list">
+            <li><a href="#encuesta">📋 Llenar Encuesta BD</a></li>
+            <li><a href="admin.html">🔐 Panel Admin de Encuestas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Lugar y Horarios</h5>
+          <p style="font-size:0.9rem; color:#a09cb8; line-height:1.6;">
+            📍 Tocaima, Cundinamarca, Colombia<br />
+            🕒 Lunes a Domingo: 10:00 AM - 9:00 PM<br />
+            📲 Pedidos: +57 313 429 2831
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>&copy; 2026 Heladería y Frutería Arcoíris · Creado por Astrit Bautista (Líder) y Daniela Duarte (Presentadora).</span>
+        <span>Repositorio: <strong>peleona2002-spec</strong></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón Flotante de WhatsApp con Radar -->
+  <a href="https://wa.me/573134292831?text=%C2%A1Hola%20Helader%C3%ADa%20Arco%C3%ADris!%20Quisiera%20hacer%20un%20pedido%20fresco%20%F0%9F%8D%A6" target="_blank" rel="noopener noreferrer" class="wa-floating-btn" aria-label="Chat en WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/survey-db.js"></script>
+  <script src="js/moderno.js"></script>
+</body>
+</html>
